@@ -9,26 +9,24 @@ const isDev = process.env.NODE_ENV === 'development'; // defining the mode type:
 const isProd = !isDev;
 
 
-const optimization = () => {
-    const config = {
-        splitChunks: {
-            chunks: 'all'
-        }
-    }
-
-    if (isProd) {
-        config.minimizer = [
-            new OptimizeCssAssetsWebpackPlugin(),
-            new TerserWebpackPlugin(),
-        ]
-    }
-
-    return config
-}
-
 const filename = ext => isDev ? `[name].${ext}` : `[name].[hash].${ext}`;
-const outputDirectoru = 'dist';
 
+const optimization = () => {
+  const config = {
+      splitChunks: {
+          chunks: 'all'
+      }
+  }
+
+  if (isProd) {
+      config.minimizer = [
+          new OptimizeCssAssetsWebpackPlugin(),
+          new TerserWebpackPlugin(),
+      ]
+  }
+
+  return config
+};
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -38,12 +36,12 @@ module.exports = {
     },
     output:  {
         filename: filename('js'),
-        path: path.resolve(__dirname, outputDirectoru)
+        path: path.resolve(__dirname, 'dist')
     },
     optimization: optimization(),
     devServer: {
         port: 4200,
-        contentBase: './'+outputDirectoru,
+        contentBase: './dist',
         hot: isDev,
     },
     plugins: [
@@ -54,68 +52,83 @@ module.exports = {
             }
         }),
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin(
-            {
-                filename: filename('css')
-            }
-        )
+        new MiniCssExtractPlugin({
+            filename: filename('css')
+        })
     ], 
     module: {
         rules: [
-            {
-                test: /\.((s[ac]|c)ss)$/,
-                use: [
-                  {
-                    loader: plugins.extractCSS.loader,
-                    options: {
-                      publicPath: '../' // use relative path for everything in CSS
-                    }
+          {
+            test: /\.css$/,
+            use: [
+              {
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                  hmr: isDev,
+                  reloadAll: true
+                },
+              },
+                'css-loader',
+
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    postcssOptions: {
+                      plugins: [
+                        require('autoprefixer'),
+                      ]
+                    },
                   },
-                  {
-                    loader: 'css-loader',
-                    options: {
-                      sourceMap: !isProduction
-                    }
+                }
+            ]
+          },
+          {
+            test: /\.s[ac]ss$/,
+            use: 
+            [
+                {
+                  loader: MiniCssExtractPlugin.loader,
+                  options: {
+                    hmr: isDev,
+                    reloadAll: true
                   },
-                  {
-                    loader: 'postcss-loader',
-                    options: {
-                      ident: 'postcss',
-                      sourceMap: !isProduction,
-                      plugins: (() => [
-                        require('autoprefixer')(),
-                        ...isProduction ? [
-                          require('cssnano')({
-                            preset: ['default', {
-                              minifySelectors: false
-                            }]
-                          })
-                        ] : []
-                      ])
-                    }
+                },
+                'css-loader',
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    postcssOptions: {
+                      plugins: [
+                        require('autoprefixer'),
+                      ]
+                    },
                   },
-                  {
-                    loader: 'sass-loader',
-                    options: {
-                      implementation: require('sass'),
-                      sassOptions: {
-                        fiber: require('fibers'),
-                        outputStyle: 'expanded',
-                        sourceMap: !isProduction
-                      }
-                    }
-                  }
-                ]
-            },
-            {
+                },
+                'sass-loader',
+            ]
+          }
+          ,
+          {
                 test: /\.(png|jpg|svg|gif)$/,
                 use: ['file-loader']
                 },
                 {
                 test: /\.(ttf|woff|woff2|eot)$/,
                 use: ['file-loader']
-            }
+          }
 
         ]
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+        

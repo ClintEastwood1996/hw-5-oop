@@ -1,9 +1,11 @@
 // Import styles
 import './styles/reset.css';
-import './styles/main.scss'
+import './styles/main.scss';
+import './styles/main.css'
+
 
 
 // Import Scripts
-import './scripts/main'
+import './js/main'
 
 
