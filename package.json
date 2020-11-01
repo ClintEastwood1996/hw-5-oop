@@ -1,0 +1,23 @@
+{
+  "name": "hw-5-oop",
+  "version": "1.0.0",
+  "description": "Home work N5 - EPAM JS Training",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClintEastwood1996/hw-5-oop.git"
+  },
+  "keywords": [
+    "OOP",
+    "ES5"
+  ],
+  "author": "Magomed Gasanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClintEastwood1996/hw-5-oop/issues"
+  },
+  "homepage": "https://github.com/ClintEastwood1996/hw-5-oop#readme"
+}
