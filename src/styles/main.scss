@@ -1,0 +1,93 @@
+// // Common
+body {
+    color: #fff;
+}
+
+
+// // Header
+
+.header {
+    box-sizing: border-box;
+    width: 100%;
+    background: {
+        image: url(../assets/img/bg.jpg);
+        repeat: no-repeat;
+        size: cover;
+        position: center;
+    };
+    padding: 3%;
+    
+    .header-inner {
+        background: {
+            color: rgba(0, 0, 0, 0.75);
+        };
+        width: 100%;
+    }
+
+    .container {
+        .header-top {
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            
+            &__logo {
+                flex-basis: 98px*1.8;
+                height: 88px*1.8;
+                background: {
+                    image: url(../assets/img/logo.png);
+                    size: contain;
+                    repeat: no-repeat;
+                }
+                flex-shrink: 0;
+            }
+
+            &__decor-line {
+                flex-basis: 400px;
+                height: 5px;
+                background: {
+                    color: #fff;
+                };
+                margin: {
+                    left: 5%;
+                    right: 5%;
+                }
+            }
+        }
+
+        .menu {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+            .items {
+                box-sizing: border-box;
+                padding: 40px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                flex-basis: 900px;
+                margin: 20px;
+
+                    .item {
+                        flex-basis: 250px;
+                        height: 150px;
+                    }
+            }
+
+            .results {
+                display: flex;
+                background: {
+                    color: rgb(207, 204, 26);
+                };
+                height: 700px;
+                flex-basis: 500px;
+                margin: 20px;
+            }
+        }
+
+
+    }
+}
