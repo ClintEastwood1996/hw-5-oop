@@ -1,4 +1,4 @@
-# THE TASK IS STILL NOT COMPLETED, PLEASE DO NOT REVIEW MY PULL REQUEST YET))
+# there are some things left to do in this task
 
 # Homework #5 OOP, prototype inheritance
 ## Deadline 03.11

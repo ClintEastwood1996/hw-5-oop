@@ -1,4 +1,4 @@
-function CreateProduct(meal) {
+export function CreateProduct(meal) {
     this.name = meal.name;
     this.price = meal.price;
     this.calories = meal.calories;
@@ -16,7 +16,7 @@ CreateProduct.prototype.calculateCalories = function() {
 
 // Hamburger object
 
-function Hamburger(size, stuffing) {
+export function Hamburger(size, stuffing) {
     this.name = size.name + " with " + stuffing.name;
     this.price = size.price + stuffing.price;
     this.calories = size.calories + stuffing.calories;
@@ -64,7 +64,7 @@ Hamburger.STUFFING_POTATO = {
 
 // Salad object
 
-function Salad() {
+export function Salad() {
 
 }
 
@@ -81,7 +81,7 @@ Salad.OLIVIE = {
 
 // Drink object
 
-function Drink() {
+export function Drink() {
     
 }
 
@@ -97,11 +97,16 @@ Drink.COFFEE = {
 };
 
 
+
+
 // Testing
-var hamburger1 = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_SALAD);
+// var hamburger1 = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_SALAD);
 
-var Product1 = new CreateProduct(hamburger1);
+// var Product1 = new CreateProduct(hamburger1);
 
-alert(Product1.name)
-alert(Product1.price)
-alert(Product1.calculateCalories())
+// console.log(Product1.name)
+// console.log(Product1.price)
+// console.log(Product1.calculateCalories())
+
+// DOM
+

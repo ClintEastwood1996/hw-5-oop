@@ -1,6 +1,36 @@
+/* font-face */
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(../assets/fonts/Roboto-Regular.ttf)
+}
+
+@font-face {
+    font-family: Roboto-Bold;
+    src: url(../assets/fonts/Roboto-Bold.ttf)
+}
+
+@font-face {
+    font-family: Splatted-Personal;
+    src: url(../assets/fonts/Splatted-Personal.ttf)
+}
+
+@font-face {
+    font-family: Dreams-Liem;
+    src: url(../assets/fonts/Dreams-Liem.ttf)
+}
+
+
+
+
+
 // // Common
 body {
     color: #fff;
+    font: {
+        size: 22px;;
+        family: Roboto-Regular;
+    }
+    letter-spacing: 1px;
 }
 
 
@@ -45,7 +75,7 @@ body {
 
             &__decor-line {
                 flex-basis: 400px;
-                height: 5px;
+                height: 1px;
                 background: {
                     color: #fff;
                 };
@@ -59,7 +89,7 @@ body {
         .menu {
             box-sizing: border-box;
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             flex-wrap: wrap;
 
             .items {
@@ -73,18 +103,113 @@ body {
 
                     .item {
                         flex-basis: 250px;
-                        height: 150px;
+                        padding: 20px;
+                        text-align: center;
+                        margin: {
+                            bottom: 35px;
+                            // right: 30px;
+                        };
+                        box-shadow: 0px 0px 15px 3px rgba(255, 255, 255, 0.78);
+                        &__text {
+                            margin: {
+                                bottom: 30px;
+                            };
+
+                            span {
+                                font-family: Roboto-Bold;
+                            }
+                        }
+
+                        &__count {
+                            margin: {
+                                bottom: 30px;
+                            };
+                        } 
+
+
+                        &__buttons {
+                            
+                            .plus-button,
+                            .minus-button {
+                                cursor: pointer;
+                                width: 45px;
+                                height: 30px;
+                                font-size: 22px;
+                                border-radius: 3px;
+                        }
+                        }
+                        
+                    }
+
+                    .stuffing {
+                        box-shadow: none;
+                        background: {
+                            color: #fff
+                        };
+                        color: rgba(0, 0, 0, 0.74);
+                        border-radius: 50px;
+                        .item__text {
+                            margin: {
+                                bottom: 15px;
+                            };
+                        }
+
+                        .stuffings {
+                            display: flex;
+                            flex-wrap: wrap;
+                            font: {
+                                size: 18px;
+                            };
+
+                            input {
+                                margin: {
+                                    bottom: 5px;
+                                };
+                                cursor: pointer;
+                                flex-basis: 40%;
+                            }
+
+                        }
                     }
             }
 
             .results {
+                font: {
+                    family: Dreams-Liem;
+                    size: 40px;
+                }
+
                 display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
                 background: {
-                    color: rgb(207, 204, 26);
+                    // color: rgb(207, 204, 26);
                 };
                 height: 700px;
-                flex-basis: 500px;
+                flex-basis: 700px;
                 margin: 20px;
+                
+                .result-button {
+                    $result-button-Height: 480px*0.3;
+                    text-align: center;
+                    color: rgba(0, 0, 0, 0.747);
+                    line-height: $result-button-Height - 20px;
+                    cursor: pointer;
+                    flex-basis: 1200px*0.4;
+                    height: $result-button-Height;
+                    background: {
+                        image: url(../assets/img/s1200.png);;
+                        position: center;
+                        size: 100% 100%;
+                        repeat: no-repeat;
+                    };
+
+                    &:hover {
+                        color: rgba(47, 66, 175, 0.747);
+                        font-size: 42px;
+                    }
+                }
             }
         }
 
