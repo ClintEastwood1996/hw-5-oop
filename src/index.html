@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="menu">
-                    <ul class="items">
+                    <ul class="items" id="items">
                         <li class="item" id="Large-Hamburger">
                             <div class="item__text"><span>Hamburger:</span> Large</div>
                             <div class="item__count" id="LargeHamburgerAmount">0</div>
@@ -81,13 +81,14 @@
                                 <button class="minus-button">-</button>
                             </div>
                         </li>
+                        <div class="cover" id="cover"></div>
                     </ul>
                     <div class="results">
                         <div class="result-button" id="get-price">Get Price</div>
                         <div class="result">Price: <span id="TotalPrice">0</span></div>
                         <div class="result-button" id="get-calories">Get Calories</div>
-                        <div class="result">Calories: <span id="TottalCalories">0</span></div>
-                        <div class="result-button">Finish Order</div>
+                        <div class="result">Calories: <span id="TotalCalories">0</span></div>
+                        <div class="result-button" id="finish-order">Finish Order</div>
                         </div>
                 </div>
             </div>

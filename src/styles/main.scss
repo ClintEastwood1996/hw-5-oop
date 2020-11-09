@@ -34,6 +34,8 @@ body {
 }
 
 
+.disabled { pointer-events: none; }
+
 // // Header
 
 .header {
@@ -100,6 +102,18 @@ body {
                 justify-content: space-around;
                 flex-basis: 900px;
                 margin: 20px;
+                position: relative;
+
+                    .cover {
+                        position: absolute;
+                        width: 100%;
+                        height: 90%;
+                        background-color: rgb(255, 255, 255);
+                        color: rgba(0, 0, 0, 0.568);
+                        padding: 20%;
+                        box-sizing: border-box;
+                        visibility: hidden;
+                    }
 
                     .item {
                         flex-basis: 250px;

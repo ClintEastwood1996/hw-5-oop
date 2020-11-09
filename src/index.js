@@ -40,12 +40,15 @@ var SmallHamburgerStuffings = document.querySelectorAll(".SmallHamburgerStuff");
 // console.log(counts[0].innerHTML)
 
 document.getElementById("get-price").onclick = calculate("TotalPrice");
-document.getElementById("get-calories").onclick = calculate("TottalCalories");
+document.getElementById("get-calories").onclick = calculate("TotalCalories");
+document.getElementById("finish-order").onclick = calculate("TotalOrder");
 
 function calculate(str) {
     return function() {
         var TotalPrice = 0;
         var TottalCalories = 0;
+        var TotlaOrder = [];
+        TotlaOrder.push(`Your order: <br><br>`);
 
 
         for (var LargeHamburgerStuffing of LargeHamburgerStuffings) {
@@ -94,47 +97,63 @@ function calculate(str) {
                     var LargeHamburgerWithStuff = new CreateProduct(LargeHamburger);
                     TotalPrice += LargeHamburgerWithStuff.price * count.innerHTML;
                     TottalCalories += LargeHamburgerWithStuff.calories * count.innerHTML;
+                    TotlaOrder.push(`${LargeHamburgerWithStuff.name} * ${count.innerHTML}<br>`);
                     break;
             };
             case ("SmallHamburgerAmount"): {
                     var SmallHamburgerWithStuff = new CreateProduct(SmallHamburger);
                     TotalPrice += SmallHamburgerWithStuff.price * count.innerHTML;
                     TottalCalories += SmallHamburgerWithStuff.calories * count.innerHTML;
+                    TotlaOrder.push(`${SmallHamburgerWithStuff.name} * ${count.innerHTML}<br>`);
                     break;
             };
             case ("SaladCaesarAmount"): {
                     var SaladCaesar = new CreateProduct(Salad.CAESAR);
                     TotalPrice += SaladCaesar.price * count.innerHTML;
                     TottalCalories += SaladCaesar.calories * count.innerHTML;
+                    TotlaOrder.push(`${SaladCaesar.name} * ${count.innerHTML}<br>`);
                     break;
             };
             case ("SaladOlivieAmount"): {
                     var SaladOlivie = new CreateProduct(Salad.OLIVIE);
                     TotalPrice += SaladOlivie.price * count.innerHTML;
                     TottalCalories += SaladOlivie.calories * count.innerHTML;
+                    TotlaOrder.push(`${SaladOlivie.name} * ${count.innerHTML}<br>`);
                     break;
             };
             case ("DrinkColaAmount"): {
                     var DrinkCola = new CreateProduct(Drink.COLA);
                     TotalPrice += DrinkCola.price * count.innerHTML;
                     TottalCalories += DrinkCola.calories * count.innerHTML;
+                    TotlaOrder.push(`${DrinkCola.name} * ${count.innerHTML}<br>`);
                     break;
             };
             case ("DrinkCoffeeAmount"): {
                     var DrinkCoffee = new CreateProduct(Drink.COFFEE);
                     TotalPrice += DrinkCoffee.price * count.innerHTML;
                     TottalCalories += DrinkCoffee.calories * count.innerHTML;
+                    TotlaOrder.push(`${DrinkCoffee.name} * ${count.innerHTML}<br>`);
                     break;
             };
         }
         }
 
+
+
         if (str == "TotalPrice") {
             document.getElementById(str).innerHTML = TotalPrice;
         }
 
-        if (str == "TottalCalories") {
+        if (str == "TotalCalories") {
             document.getElementById(str).innerHTML = TottalCalories;
+        }
+
+
+        if (str == "TotalOrder") {
+            TotlaOrder.push(`<br><br>Price: ${TotalPrice}<br>`);
+            TotlaOrder.push(`Calories: ${TottalCalories}`);
+            document.getElementById("cover").innerHTML = TotlaOrder;
+            document.getElementById("cover").style.visibility = "visible";
         }
         
     }
